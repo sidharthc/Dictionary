@@ -1,3 +1,3 @@
-mkdir -p /var/log/appear/
-echo "" >> /var/log/appear/application.log
-chown -R wsgi:wsgi /var/log/appear
+mkdir -p /var/log/dict/
+echo "" >> /var/log/dict/application.log
+chown -R wsgi:wsgi /var/log/dict
