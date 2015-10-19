@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="stylesheet" type="text/css" href="//aui-cdn.atlassian.com/aui-adg/5.8.13/css/aui.css"/> 
+    <!--[if lt IE 9]><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/aui/5.2/css/aui-ie.css" media="all"><![endif]-->
+    <!--[if IE 9]><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/aui/5.2/css/aui-ie9.css" media="all"><![endif]-->
+    <link rel="stylesheet" href="https://www.hipchat.com//atlassian-connect/all.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" /> 
+    
+    <style type="text/css">
+        html, body {
+            background-color: #fff !important;
+            margin: 0;
+            padding: 0;
+        }
+        .panel-position {
+            position: relative;
+            top: 40px;
+        }
+        .background-job-checkbox {
+		  	width: 25px;
+		  	height: 25px;
+		}
+		.background-job-lable {
+			vertical-align: 8px;
+		}
+        .statistics-header {
+            margin: 0px;
+            text-align: center;
+        }
+        .table-text-center > td, .table-text-center > th{
+        	text-align: center !important;
+        }
+        .entity-detail-table {
+        	border: 1px solid #ddd;
+        }
+        .text-center {
+        	text-align: center;
+        }
+        .count-box {
+        	max-width: 50%;
+			margin: 2% 14%;
+			border: 1px solid #ddd;
+			border-radius: 6px;
+			padding: 28px;
+            color: #ffffff;
+			background-color: #A5B4CB;
+        }
+         .count-display {
+            font-size: 36px;
+        }
+        .count-title {
+            font-size: 16px;
+        }
+        .span-class {
+        	padding-left:20px;
+        }
+        .widget-container {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    </style>
+
+  </head>
+  <header id="header" role="banner">
+      <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+        <div class="aui-header-primary">
+            <h1 id="logo" class="aui-header-logo aui-header-logo-hipchat"><a href="/admin"><span class="aui-header-logo-device">HipChat</span></a></h1>
+            <ul class="aui-nav" style="width: auto;" resolved="">
+            </ul>
+        </div>
+        <div class="aui-header-secondary">
+            <div class="aui-nav aui-style-default" id="dropdown2-header9">
+                <div class="aui-dropdown2-section">
+                    <a href="/admin/logout">Log out</a>
+                </div>
+            </div>
+        </div>
+      </nav>
+  </header>
+  <body class="layout_focused aui aui-page-focused aui-page-focused-xlarge display_mode_default" data-aui-version="5.7.1">
+    {% block content %}
+    {% endblock %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//aui-cdn.atlassian.com/aui-adg/5.8.13/js/aui.js"></script>
+    <script src="//d26b395fwzu5fz.cloudfront.net/3.1.0/keen.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/aui/5.2/js/aui-ie.js"></script><![endif]-->
+    {% block script %}
+    {% endblock %}
+  </body>
+</html>

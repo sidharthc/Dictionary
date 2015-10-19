@@ -1,0 +1,49 @@
+{% extends "admin.html" %}
+{% block title %}HipChat - Settings{% endblock %}
+{% block content %}
+    <div class="aui-page-panel panel-position">
+        <div id="aui-message-bar"></div>
+        <div class="aui-page-panel-inner">
+            <div class="aui-page-panel-content">
+                <label class="background-job-lable">Stop background job</label>
+                <input type="checkbox" name="stop-backgound-job" class="background-job-checkbox" 
+                    {% if is_background_job_paused %} checked {% endif %} />
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        (function($) {
+            $('.background-job-checkbox').click(function(){
+                $.ajax({
+                    type: 'POST',
+                    data: {
+                        "background_job_status": $('.background-job-checkbox').prop("checked")
+                    }
+                })
+                .done(function() {
+                    var backgroundJob = $('.background-job-checkbox');
+                    if ($(backgroundJob).prop("checked")){
+                        $(backgroundJob).removeAttr("checked");
+                    }else{
+                        $(backgroundJob).attr("checked", "true");
+                    }
+                    AJS.messages.success({
+                        title: "Success!",
+                        body: "Your settings was saved successfully."
+                    });
+                })
+                .fail(function(){
+                    AJS.messages.error({
+                        title: "Error!",
+                        body: "<p>There was an unknown error trying to save your settings.</p><p>Please retry later or contact your administrator.</p>"
+                    });
+                });
+                return false;
+            });
+            
+        })(AJS.$);
+    </script>
+{% endblock %}

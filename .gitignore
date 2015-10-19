@@ -1,0 +1,10 @@
+hipappear-dev
+localserver.sh
+*.pyc
+venv
+.project
+.pydevproject
+mongodata
+build*.zip
+*.sublime-project
+*.sublime-workspace

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HipAppear Configuration</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/aui/5.2/css/aui.css" media="all">
+    <!--[if lt IE 9]><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/aui/5.2/css/aui-ie.css" media="all"><![endif]-->
+    <!--[if IE 9]><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/aui/5.2/css/aui-ie9.css" media="all"><![endif]-->
+    <link rel="stylesheet" href="https://www.hipchat.com//atlassian-connect/all.css"> 
+    <link rel="stylesheet" type="text/css" href="//aui-cdn.atlassian.com/aui-adg/5.8.4/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="//aui-cdn.atlassian.com/aui-adg/5.8.4/css/aui-experimental.css"/>
+    
+    <style type="text/css">
+        html, body {
+            background-color: #fff !important;
+            margin: 0;
+            padding: 0;
+            height: 96%;
+        }
+        .blank-slate {
+            z-index: 0;
+            float: left;
+        }
+        .config-heading-text {
+        	margin-top: -7px !important;
+        	font-weight: bold;
+        }
+        .config-subheading-text {
+        	margin-top: 0px !important;
+        }
+        .horizontal-rule {
+        	margin-top: 9%;
+        }
+        .how-it-works-text {
+        	text-align: left;
+        	margin-left: 40px;
+        }
+        .waiting-signin {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 2;
+            background: #fff;
+            opacity: 0.7;
+            padding-top: 45px;
+        }
+        
+    </style>
+
+  </head>
+  <body>
+    <div id="aui-message-bar"></div>
+	<div class="aui-group">
+		<div class="aui-item blank-slate">
+			<img src='static/images/inside_screens_logo_appear.png' width=65px/>
+	  	</div>
+	  	<div class="aui-item blank-slate">
+	  		<h3 class="config-heading-text">appear.in</h3>
+			<p class="config-subheading-text">This add-on allows you to initiate and Join a appear.in video conference from a HipChat room.
+    		</p>
+    	</div>
+    	<hr width=99% color="#F8F8F8" noshade="noshade" class="horizontal-rule">
+    	<div class="aui-group aui-group-split">
+			<div class="aui-item">
+				<h3>What does it look like?</h3>
+				<img src="static/images/appear_image.png" width = 380px>
+			</div>
+			<div class="aui-item">
+				<h3 class="how-it-works-text">How it works: Simply Enter /appear </h3>
+				<img src="static/images/how_it_works.png" width=400px>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
