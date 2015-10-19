@@ -46,9 +46,15 @@ def _handle_appear_callback():
         message = "Usage: /dict <<word>>. It will return you the meaning of the word."
     else:
         word = input_message.split(" ")[1]
-        message = get_appear_random_room_name(word, tenant_id)
-        print "YYYYYYYYYYYYYYYY", 
-        tasks.send_notification(tenant_id, json.dumps(message), room_id)
+        message = get_meaning_of_the_word(word, tenant_id)
+        list_of_meanings = get_list_of_meanings(message)
+        html_message = "Sorry, We are unable to find the meaning of the word " + word + "."
+        if list_of_meanings:
+            data_to_parse = {}
+            data_to_parse["list_of_meanings"] = list_of_meanings
+            data_to_parse["word"] = word
+            html_message = create_html_from_meaning_list(data_to_parse)
+        tasks.send_notification(tenant_id, html_message, room_id)
     try:
         tasks.send_notification(tenant_id, message, room_id)
     except InvalidCredentials as ex:
@@ -65,7 +71,22 @@ def _handle_appear_callback():
     return "Success", 200
 
 
-def get_appear_random_room_name(word, tenant_id):
+def create_html_from_meaning_list(data_to_parse):
+        return render_template('message_template.html', **data_to_parse)
+
+def get_list_of_meanings(message):
+    list_of_meanings = []
+    if ('tuc' in message and  len(message['tuc']) > 0 and 
+        'meanings' in message['tuc'][0] and len(message['tuc'][0]['meanings']) >0):
+        for meaning in message['tuc'][0]['meanings']:
+            if len(list_of_meanings) >= 5:
+                break
+            list_of_meanings.append(meaning["text"])
+            
+    return list_of_meanings
+
+
+def get_meaning_of_the_word(word, tenant_id):
     """Retrieves unique and random room name from appear"""
     url = app.config['DICT_BASE_URL'] % (word)
     resp = requests.request('GET', url, timeout=14)
