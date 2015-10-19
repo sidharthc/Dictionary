@@ -48,7 +48,7 @@ def _handle_appear_callback():
         word = input_message.split(" ")[1]
         message = get_meaning_of_the_word(word, tenant_id)
         list_of_meanings = get_list_of_meanings(message)
-        html_message = "Sorry, We are unable to find the meaning of the word " + word + "."
+        html_message = "Sorry, We are unable to find meaning of the word <b>'" + word + "'</b>. Please try some other word."
         if list_of_meanings:
             data_to_parse = {}
             data_to_parse["list_of_meanings"] = list_of_meanings
