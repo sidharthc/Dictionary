@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 from hipdict import app as application
 
 application.logger.setLevel(logging.INFO)
-handler = RotatingFileHandler('/var/log/dict/application.log',
+handler = RotatingFileHandler('application.log',
                                maxBytes=10000, backupCount=5)
 formatter = logging.Formatter("%(asctime)s - %(module)s - %(levelname)s - %(message)s")
 handler.setFormatter(formatter)
