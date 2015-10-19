@@ -12,7 +12,7 @@ from hipdict import app, addon, tasks
 
 
 # The regular expression for the slash command.
-DICTIONARY_COMMAND_PATTERN = "(^\/[Dd][Ii][Cc][Tt])"
+DICTIONARY_COMMAND_PATTERN = "(^\/[Mm][Ee][Aa][Nn][Ii][Nn][Gg])"
 
 
 @addon.configure_page(path="/configure", methods=['GET'])
@@ -23,8 +23,8 @@ def configuration_page():
 
 def _render_configuration_page():
     model = {}
-    message = ("Dict integration has been installed successfully in this room. Type /meaning <word>" +
-               "to get the meaning of that.")
+    message = ("Dictionary integration has been installed successfully in this room. Type /meaning <word>" +
+               "to get the meaning of the word.")
     tasks.send_notification(tenant.id, message, tenant.room_id, color='green')
     return render_template('configure.html', **model)
 
