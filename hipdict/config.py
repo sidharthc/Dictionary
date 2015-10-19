@@ -1,21 +1,14 @@
 # To override any of these settings in production,
 # create environment variables with the prefix HIPDICT_
 #
-# For example, to override SECRET_KEY, you create an environment variable
-# HIPDICT_SECRET_KEY='blah'
-
-#MONGOHQ_URL
-#REDISTOGO_URL
+# For example, to override BASE_URL, you create an environment variable
+# HIPDICT_BASE_URL='blah'
 
 # This is a flask property for session secrets
 SECRET_KEY = 'super secret stuff'
 
 DEBUG = False
 
-# Keep sessions for 1 hour only
-# We do not use sessions directly, but the HipChat plugin
-# apparently uses sessions during the authentication phase
-PERMANENT_SESSION_LIFETIME = 3600
 
 #Addon vendor properties
 ADDON_VENDOR_NAME = "HipChat"

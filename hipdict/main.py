@@ -2,14 +2,17 @@ from __future__ import division
 import json
 import requests
 
-from hipdict import app, addon, tasks
+
 from flask import render_template, request
 from ac_flask.hipchat import events
-from hipdict.exceptions import *
 from ac_flask.hipchat.auth import tenant
 
+from hipdict.exceptions import *
+from hipdict import app, addon, tasks
+
+
 # The regular expression for the slash command.
-DICTIONARY_COMMAND_PATTERN = "(^\/[Dd][Ii][Cc][Tt])" 
+DICTIONARY_COMMAND_PATTERN = "(^\/[Dd][Ii][Cc][Tt])"
 
 
 @addon.configure_page(path="/configure", methods=['GET'])
@@ -20,9 +23,9 @@ def configuration_page():
 
 def _render_configuration_page():
     model = {}
-    message = ("Dict integration has been installed successfully in this room. Type /dict <word>" +
+    message = ("Dict integration has been installed successfully in this room. Type /meaning <word>" +
                "to get the meaning of that.")
-    tasks.send_notification(tenant.id, message, tenant.room_id)
+    tasks.send_notification(tenant.id, message, tenant.room_id, color='green')
     return render_template('configure.html', **model)
 
 
