@@ -2,6 +2,6 @@ We have found the following meaning of the word <b>{{ word }}</b>:
 <br>
 <ul>
 {% for meaning in list_of_meanings %}
-<li>{{meaning}}</li>
+<li>{{meaning|safe}}</li>
 {% endfor %}
 </ul>

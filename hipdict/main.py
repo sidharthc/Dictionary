@@ -54,7 +54,7 @@ def _handle_appear_callback():
             data_to_parse["list_of_meanings"] = list_of_meanings
             data_to_parse["word"] = word
             html_message = create_html_from_meaning_list(data_to_parse)
-        tasks.send_notification(tenant_id, html_message, room_id)
+        tasks.send_notification(tenant_id, html_message, room_id, color="random")
     try:
         tasks.send_notification(tenant_id, message, room_id)
     except InvalidCredentials as ex:
