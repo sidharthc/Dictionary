@@ -31,7 +31,7 @@ def _render_configuration_page():
 
 @app.route('/dicctionary_callback_url', methods=["POST"])
 @addon.webhook(event="room_message", pattern=DICTIONARY_COMMAND_PATTERN)
-def _handle_appear_callback():
+def _handle_dict_callback():
     """This function acts as a HipChat webhook and responds
     whenever it encounters the appropriate slash command.
     """
@@ -87,7 +87,6 @@ def get_list_of_meanings(message):
 
 
 def get_meaning_of_the_word(word, tenant_id):
-    """Retrieves unique and random room name from appear"""
     url = app.config['DICT_BASE_URL'] % (word)
     resp = requests.request('GET', url, timeout=14)
     if resp.status_code >= 200 and resp.status_code <= 299:
@@ -106,9 +105,9 @@ def get_meaning_of_the_word(word, tenant_id):
         raise InternalServerError()
 
     else:
-        app.logger.error('Appear returned %d status code for tenant %s while \
+        app.logger.error('Dict url returned %d status code for tenant %s while \
         sending notification.' % (resp.status_code, str(tenant_id)))
-        raise Exception('Appear returned %d status code for tenant %s while\
+        raise Exception('Dict url returned %d status code for tenant %s while\
          sending notification.' % (resp.status_code, str(tenant_id)))
 
 
