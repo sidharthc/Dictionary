@@ -59,8 +59,10 @@ def _handle_dict_callback():
         message = "Sorry, We are unable to find meaning of the word <b>'" + word + "'</b>. Please try some other word."
         if meaning:
             meaning = construct_meaning(meaning)
-            synonym = ', '.join(synonym)
-            antonym = ', '.join(antonym)
+            if synonym:
+                synonym = ', '.join(synonym)
+            if antonym:
+                antonym = ', '.join(antonym)
             message = create_html_from_meaning_list(word, meaning, synonym, antonym)
     try:
         tasks.send_notification(tenant_id, message, room_id, color="random")
@@ -80,6 +82,10 @@ def _handle_dict_callback():
 
 def create_html_from_meaning_list(word, meaning, synonym, antonym):
     data_to_parse = {"meanings": meaning, "synonym": synonym, "antonym": antonym, "word": word}
+    if not synonym:
+        del data_to_parse["synonym"]
+    if not antonym:
+        del data_to_parse["antonym"]
     return render_template('message_template.html', **data_to_parse)
 
 

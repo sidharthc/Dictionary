@@ -3,5 +3,9 @@
 <i>{{key|safe}}:</i><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value|safe}}<br>
 {% endfor %}
+{% if synonym %}
 <p><i>synonym</i>: {{synonym|safe}}</p>
+{% endif %}
+{% if antonym %}
 <p><i>antonym</i>: {{antonym|safe}}</p>
+{% endif %}
