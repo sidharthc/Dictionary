@@ -1,7 +1,7 @@
-We have found the following meaning of the word <b>{{ word }}</b>:
-<br>
-<ul>
-{% for meaning in list_of_meanings %}
-<li>{{meaning|safe}}</li>
+<b>{{word|safe}}</b><br>
+{% for key, value in meanings.iteritems() %}
+<i>{{key|safe}}:</i><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value|safe}}<br>
 {% endfor %}
-</ul>
+<p><i>synonym</i>: {{synonym|safe}}</p>
+<p><i>antonym</i>: {{antonym|safe}}</p>
