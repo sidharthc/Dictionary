@@ -1,5 +1,5 @@
 #{{cookiecutter.github_repository_name}}
-==============================================
+---------------------------------------------------
 {{cookiecutter.description}}. Check out the project's [documentation](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}}/).
 
 # Introduction
@@ -8,10 +8,10 @@
 
 ## Getting Started
 
-# Prerequisites
+### Prerequisites
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
 
-# Initialize the project
+### Initialize the project
 Create and activate a virtualenv:
 
 ```bash
